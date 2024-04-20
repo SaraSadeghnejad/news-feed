@@ -1,0 +1,9 @@
+.nav-container {
+  .nav-style {
+    .nav-icon {
+      @apply w-6 h-6 mr-2;
+    }
+    @apply flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400;
+  }
+  @apply mt-10;
+}

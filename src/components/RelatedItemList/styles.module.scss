@@ -1,0 +1,15 @@
+.list-container {
+  .title-container {
+    .title-style {
+      @apply text-white font-bold text-2xl;
+    }
+    @apply flex flex-row justify-between items-center;
+  }
+  .swiper-container{
+    .swiper-slide{
+        @apply shadow-lg rounded-md animate-slideright border bg-white mb-5 w-auto h-auto
+    }
+    @apply mt-4
+  }
+  @apply mt-8;
+}

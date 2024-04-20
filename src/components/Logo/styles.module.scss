@@ -1,0 +1,9 @@
+.logo-container{
+    .logo-img{
+        @apply w-full h-14 object-contain
+    }
+    .logo-title{
+        @apply text-white mt-4
+    }
+    @apply flex flex-col items-center
+}

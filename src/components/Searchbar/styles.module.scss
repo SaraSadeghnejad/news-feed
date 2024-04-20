@@ -1,0 +1,12 @@
+.form-container{
+    .input-container{
+        .search-icon{
+            @apply w-5 h-5 ml-4
+        }
+        .input-style{
+            @apply flex-1 bg-transparent border-none placeholder-gray-500 outline-none text-base text-white p-4
+        }
+        @apply flex flex-row justify-start items-center bg-white/20
+    }
+    @apply p-2 text-gray-400 focus-within:text-gray-600 
+}
