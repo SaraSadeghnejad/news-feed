@@ -1,18 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMutation } from "react-query";
 import axios from "axios";
 interface SourceProps {
-  authorTerm: string;
+  authorTerm: string | null;
 }
-export const useGetSource = ({ authorTerm }: SourceProps) => {
+export const useGetAuthor = ({ authorTerm }: SourceProps) => {
   const fetchData = async () => {
-    let combinedResults: string[] = [];
+    let combinedResults: any = [];
     // Fetch data from the first API
     try {
       const response1 = await axios.get(
         import.meta.env.VITE_NEWS_API_URL + "/everything",
         {
           params: {
-            source: authorTerm,
+           q: authorTerm,
             apiKey: import.meta.env.VITE_NEWS_API_KEY
           }
         }

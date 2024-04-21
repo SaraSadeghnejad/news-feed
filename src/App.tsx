@@ -3,11 +3,9 @@ import Sidebar from "./components/Sidebar";
 import SearchBar from "./components/Searchbar";
 import styles from "./styles.module.scss";
 import {
-  Categories,
   Following,
   ForYou,
   Search,
-  Sources,
   TopHeadlines,
 } from "./pages";
 

@@ -1,0 +1,6 @@
+.container{
+    .filtered-list{
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center gap-5 mt-5
+    }
+    @apply flex flex-col
+}

@@ -6,7 +6,7 @@ import {
 import styles from './styles.module.scss'
 import { NavLink } from "react-router-dom";
 const links = [
-  { name: "Headlines", to: "/headlines", icon: HiOutlineGlobeAlt },
+  { name: "Headlines", to: "/", icon: HiOutlineGlobeAlt },
   { name: "Following", to: "/following", icon: HiOutlineStar },
   { name: "For You", to: "/for-you", icon: HiOutlineCollection }
 ];

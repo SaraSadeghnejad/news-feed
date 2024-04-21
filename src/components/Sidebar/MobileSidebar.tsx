@@ -22,10 +22,9 @@ const MobileSidebar = () => {
         )}
       </div>
       <div
-        className={
-          (styles["sidebar-container"],
-          `${mobileMenuOpen ? "left-0" : "-left-full"}`)
-        }
+        className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl from-white/10 to-[#483D8B] backdrop-blur-lg z-10 p-6 lg:hidden smooth-transition ${
+          mobileMenuOpen ? "left-0" : "-left-full"
+        }`}
       >
         <Logo />
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />

@@ -1,4 +1,14 @@
-const SelectItem = ({ title, data, onChange, value }) => {
+import { ChangeEvent } from "react";
+import { SelectItems } from "../../utils/types";
+
+interface SelectItemProps {
+  title?: string;
+  data: SelectItems[] ;
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+  value?: string ;
+}
+
+const SelectItem = ({ title, data, onChange, value }: SelectItemProps) => {
   return (
     <div className="mx-1">
       <label htmlFor={title} className="label-style">

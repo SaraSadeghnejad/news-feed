@@ -4,6 +4,8 @@ import { useCategoryQuery } from "../../hooks/useCategoryQuery";
 import { useStore } from "../../store/store";
 import { useGetSource } from "../../hooks/useGetSource";
 import styles from './styles.module.scss'
+import { useGetAuthor } from "../../hooks/useGetAuthor";
+import Loader from "../../components/Loader";
 const ForYou = () => {
   const {
     CategoryList: category,
@@ -14,14 +16,14 @@ const ForYou = () => {
     SourceList: state.SourceList,
     AuthorList: state.AuthorList
   }));
-  const { mutate: categoryMutate, data: categoryData } = useCategoryQuery({
+  const { mutate: categoryMutate, data: categoryData,isLoading:categoryLoading } = useCategoryQuery({
     categoryTerm: category.id
   });
-  const { mutate: sourceMutate, data: sourceData } = useGetSource({
+  const { mutate: sourceMutate, data: sourceData,isLoading:sourceLoading } = useGetSource({
     sourceTerm: source.id
   });
-  const { mutate: authorMutate, data: authorData } = useCategoryQuery({
-    categoryTerm: author.id
+  const { mutate: authorMutate, data: authorData ,isLoading:authorLoading } =useGetAuthor({
+    authorTerm: author.id
   });
   useEffect(() => {
     if (category.id) {
@@ -41,7 +43,9 @@ const ForYou = () => {
     source,
     sourceMutate
   ]);
-
+  if (categoryLoading || sourceLoading || authorLoading) {
+    return <Loader />;
+  }
   return (
     <div className={styles['container']}>
       <RelatedItemList data={categoryData} title={category.id} />

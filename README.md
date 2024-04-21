@@ -29,3 +29,11 @@ export default {
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 # news-feed
+# Docker
+Build docker image
+docker build -t myimage .
+Run image and add ENV variables to container
+docker run --name news-feed -p 8080:5000 \
+
+--rm myimage
+Test that your app is running on port 8080 in local browser at http://localhost:8080 and you should see the default screen but the values match ENV variable values passed in your run command.

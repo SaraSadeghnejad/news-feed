@@ -7,9 +7,9 @@
   }
   .swiper-container{
     .swiper-slide{
-        @apply shadow-lg rounded-md animate-slideright border bg-white mb-5 w-auto h-auto
+        @apply  mb-5 w-auto h-auto
     }
     @apply mt-4
   }
-  @apply mt-8;
+  @apply  xl:mb-0 mb-6 flex-1 xl:max-w-screen-xl w-[82vw] ;
 }

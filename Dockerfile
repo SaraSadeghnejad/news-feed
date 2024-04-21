@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18.19-alpine
 
 WORKDIR /app
 
@@ -12,4 +12,4 @@ RUN npm run build
 
 EXPOSE 8080
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "preview" ]

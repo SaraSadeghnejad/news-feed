@@ -1,23 +1,25 @@
 import { create } from "zustand";
 import { produce } from "immer";
 import { persist, createJSONStorage } from "zustand/middleware";
+import { IStoreSlice } from "../utils/types";
 
-export const useStore = create (
+export const useStore = create<IStoreSlice>()(
   persist(
     (set) => {
       return {
-        fromDate: "",
-        toDate: "",
+        fromDate: null,
+        toDate: null,
         selectedCategory: "",
         setSelectedCategory: (value) =>
           set(() => ({ selectedCategory: value })),
         selectedSource: "",
-        setSelectedSource: (value) => set(() => ({ selectedSource: value })),
+        setSelectedSource: (value) =>
+          set(() => ({ selectedSource: value })),
         setFromDate: (value) => set(() => ({ fromDate: value })),
         setToDate: (value) => set(() => ({ toDate: value })),
-        SourceList: null,
-        CategoryList: null,
-        AuthorList: null,
+        SourceList: { id: '' },
+        CategoryList: { id: '' },
+        AuthorList: { id: '' },
         addToFavoriteList: (type: string, id: string) =>
           set(
             produce((state) => {
@@ -40,3 +42,4 @@ export const useStore = create (
     }
   )
 );
+

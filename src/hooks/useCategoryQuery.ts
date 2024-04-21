@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useMutation } from "react-query";
 import axios from "axios";
 interface CategoryProps {
-  categoryTerm: string;
+  categoryTerm: string | null;
 }
 export const useCategoryQuery = ({ categoryTerm }: CategoryProps) => {
   const fetchData = async () => {
-    let combinedResults: string[]= [];
+    let combinedResults: any = [];
 
     // Fetch data from the first API
     try {

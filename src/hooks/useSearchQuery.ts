@@ -1,11 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "react-query";
 import axios from "axios";
 interface SearchProps {
   searchTerm: string;
-  categoryTerm?: string;
-  fromDate?: string;
-  toDate?: string;
-  sourceTerm?: string;
 }
 export const useSearchQuery = ({
   searchTerm,
@@ -13,7 +10,7 @@ export const useSearchQuery = ({
 }: SearchProps) => {
  
   const fetchData = async () => {
-    let combinedResults: string[] = [];
+    let combinedResults: any = [];
 
     // Fetch data from the first API
     try {

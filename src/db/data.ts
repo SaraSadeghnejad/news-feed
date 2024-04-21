@@ -7,3 +7,6 @@ export const categoryLists = [
   { id: "sports", name: "sports", type: "Categories" },
   { id: "technology", name: "technology", type: "Categories" }
 ];
+export const newYorkTimesSource={
+  id:"The New York Times", name:"The New York Times"
+}

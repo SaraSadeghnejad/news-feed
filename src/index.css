@@ -5,6 +5,9 @@
 .react-date-picker__wrapper{
   @apply border-none;
 }
+html{
+  @apply overflow-y-hidden
+}
 @layer components {
   /* Active Navigation Link */
 .active {

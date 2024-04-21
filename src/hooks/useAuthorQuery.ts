@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "react-query";
 import axios from "axios";
 
 export const useAuthorQuery = () => {
  const fetchData = async () => {
-   let combinedResults: string[] = [];
+   let combinedResults: any = [];
 
    // Fetch data from the first API
    try {

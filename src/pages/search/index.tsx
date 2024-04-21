@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import NewsCard from "../../components/NewsCard";
 import { useSearchQuery } from "../../hooks/useSearchQuery";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { logo } from "../../assets";
-
+import styles from "./styles.module.scss";
 import SearchPickers from "../../components/SearchPicker";
 import Loader from "../../components/Loader";
 import { useStore } from "../../store/store";
 import { useCategoryQuery } from "../../hooks/useCategoryQuery";
+import {  FilteredSource, NewsItem } from "../../utils/types";
 
 const Search = () => {
   const { searchTerm } = useParams();
@@ -25,24 +27,27 @@ const Search = () => {
   });
 
   const filterByDate = useCallback(
-    (item) => {
+    (item: any) => {
       const publicationDate = new Date(
-        item.publication_date || item.pub_date || item.publishedAt
+        item?.publication_date || item?.pub_date || item?.publishedAt
       );
-      return publicationDate >= fromDate && publicationDate <= toDate;
+      if (fromDate && toDate) {
+        return publicationDate >= fromDate && publicationDate <= toDate;
+      }
     },
     [fromDate, toDate]
   );
 
   const filterBySource = useCallback(
-    (item) => {
-      const source = item?.source || item?.sectionName || item?.source?.name;
+    (item: FilteredSource) => {
+      const source =
+        item?.source?.name || item?.sectionName || "The New York Times";
       return source === selectedSource;
     },
     [selectedSource]
   );
   const { mutate: categoryMutate, data: categoryData } = useCategoryQuery({
-    selectedCategory
+    categoryTerm: selectedCategory as string
   });
   useEffect(() => {
     if (selectedCategory) {
@@ -73,19 +78,20 @@ const Search = () => {
   if (isLoading || isRefetching) {
     return <Loader />;
   }
+
   return (
-    <div className="flex flex-col">
-      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+    <div className={styles.container}>
+      <h2 className="label-style">
         Showing results for <span className="font-black">{searchTerm}</span>
       </h2>
       <SearchPickers />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center gap-5 mt-5">
-        {filteredData?.map((item, i) => (
+      <div className={styles["filtered-list"]}>
+        {filteredData?.map((item: NewsItem, i: number) => (
           <NewsCard
             key={i}
-            urlToImage={item.urlToImage ? item.urlToImage : logo}
-            title={item.title || item.webTitle || item.abstract}
-            webUrl={item.webUrl || item.url}
+            urlToImage={item?.urlToImage ? item?.urlToImage : logo}
+            title={item?.title || item?.webTitle || item?.abstract}
+            webUrl={item?.webUrl || item?.url}
           />
         ))}
       </div>

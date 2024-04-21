@@ -5,6 +5,7 @@ import SelectItem from "../SelectItem";
 import { categoryLists } from "../../db/data";
 import { useSourceQuery } from "../../hooks/useSourceQuery";
 import { useStore } from "../../store/store";
+import styles from "./styles.module.scss"
 
 const SearchPickers = () => {
   const { data: sources } = useSourceQuery();
@@ -29,7 +30,7 @@ const SearchPickers = () => {
     selectedSource: state.selectedSource
   }));
   return (
-    <div className="flex flex-wrap mx-3 ">
+    <div className={styles.container}>
       <div className="mx-2">
         <div className="label-style">From</div>
         <DatePicker
