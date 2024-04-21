@@ -6,6 +6,7 @@ import { useGetSource } from "../../hooks/useGetSource";
 import styles from './styles.module.scss'
 import { useGetAuthor } from "../../hooks/useGetAuthor";
 import Loader from "../../components/Loader";
+import { NewsItem } from "../../utils/types";
 const ForYou = () => {
   const {
     CategoryList: category,
@@ -47,12 +48,12 @@ const ForYou = () => {
     return <Loader />;
   }
   return (
-    <div className={styles['container']}>
-      <RelatedItemList data={categoryData} title={category.id} />
+    <div className={styles["container"]}>
+      <RelatedItemList data={categoryData as NewsItem[]} title={category.id} />
 
-      <RelatedItemList data={sourceData} title={source.id} />
+      <RelatedItemList data={sourceData as NewsItem[]} title={source.id} />
 
-      <RelatedItemList data={authorData} title={author.id} />
+      <RelatedItemList data={authorData as NewsItem[] } title={author.id} />
     </div>
   );
 };

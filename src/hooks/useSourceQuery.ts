@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "react-query";
 import axios from "axios";
 import { newYorkTimesSource } from "../db/data";
+import { SelectItems } from "../utils/types";
 
 export const useSourceQuery = () => {
  const fetchData = async () => {
-   let combinedResults: any = [];
+   let combinedResults: SelectItems[] = [];
    combinedResults = combinedResults.concat(newYorkTimesSource);
    // Fetch data from the first API
    try {

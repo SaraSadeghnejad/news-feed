@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "react-query";
 import axios from "axios";
+import { NewsItem } from "../utils/types";
 
 
 export const useHeadlinesQuery = () => {
   const fetchData = async () => {
-    let combinedResults: any = [];
+    let combinedResults: NewsItem[] = [];
 
     // Fetch data from the first API
     try {

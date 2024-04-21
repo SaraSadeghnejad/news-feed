@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useMutation } from "react-query";
 import axios from "axios";
 interface SourceProps {
@@ -6,7 +6,7 @@ interface SourceProps {
 }
 export const useGetSource = ({ sourceTerm }: SourceProps) => {
   const fetchData = async () => {
-    let combinedResults: any= [];
+    let combinedResults: string[]= [];
     // Fetch data from the first API
     try {
       const response1 = await axios.get(

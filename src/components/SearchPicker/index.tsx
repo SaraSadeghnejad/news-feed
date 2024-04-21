@@ -6,6 +6,7 @@ import { categoryLists } from "../../db/data";
 import { useSourceQuery } from "../../hooks/useSourceQuery";
 import { useStore } from "../../store/store";
 import styles from "./styles.module.scss"
+import { SelectItems } from "../../utils/types";
 
 const SearchPickers = () => {
   const { data: sources } = useSourceQuery();
@@ -63,7 +64,7 @@ const SearchPickers = () => {
       />
       <SelectItem
         title={"Sources"}
-        data={sources}
+        data={sources as SelectItems[]}
         onChange={(e) => {
           setSelectedSource(e.target.value);
           setSelectedCategory("");

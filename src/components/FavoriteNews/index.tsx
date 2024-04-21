@@ -6,6 +6,7 @@ import { useSourceQuery } from "../../hooks/useSourceQuery";
 import { useAuthorQuery } from "../../hooks/useAuthorQuery";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
+import { SelectItems } from "../../utils/types";
 const FavoriteNews = () => {
   const { data: sources } = useSourceQuery();
   const { data: authors } = useAuthorQuery();
@@ -35,7 +36,7 @@ const FavoriteNews = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mx-auto flex-col text-white">
+    <div className={styles.container}>
       <div className={styles["favorite-container"]}>
         <SelectItem
           title={"Categories"}
@@ -45,13 +46,13 @@ const FavoriteNews = () => {
         />
         <SelectItem
           title={"Sources"}
-          data={sources}
+          data={sources as SelectItems[]}
           onChange={handleSource}
           value={source}
         />
         <SelectItem
           title={"Authors"}
-          data={authors}
+          data={authors as SelectItems[]}
           onChange={handleAuthor}
           value={author}
         />

@@ -39,7 +39,7 @@ export type NewYorkTimes = {
   print_section: string;
   print_page: string;
   source: string;
-  multimedia: [];
+  multimedia: string[];
   headline: {
     main: string;
     kicker: string | null;
@@ -49,14 +49,14 @@ export type NewYorkTimes = {
     seo: string | null;
     sub: string | null;
   };
-  keywords: [];
+  keywords: string[];
   pub_date: string;
   document_type: string;
   news_desk: string;
   section_name: string;
   byline: {
     original: string | null;
-    person: [];
+    person: string[] | null;
     organization: string | null;
   };
   type_of_material: string;
@@ -64,6 +64,32 @@ export type NewYorkTimes = {
   word_count: number;
   uri: string;
 };
+export type NEWSAPI ={
+  source:{
+    id: string;
+    name: string;
+  },
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
+}
+export type GURDIANS={
+  id: string;
+  type: string;
+  sectionId: string;
+  webPublicationDate: string;
+  webTitle: string;
+  webUrl: string;
+  apiUrl: string;
+  isHosted: boolean;
+  pillarId: string;
+  pillarName: string;
+}
+export type MyArrayTypes = GURDIANS | NEWSAPI | NewYorkTimes;
 export interface FilteredDate {
   publication_date?: string | Date;
   pub_date?: string;
